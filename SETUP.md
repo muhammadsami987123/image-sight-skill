@@ -104,7 +104,7 @@ brew info tesseract
 Use in the script:
 
 ```bash
-python scripts/inspect_image.py page.png --mode text --lang eng+urd
+python skills/image-sight/scripts/inspect_image.py page.png --mode text --lang eng+urd
 ```
 
 Common codes: `eng`, `urd`, `ara`, `hin`, `chi_sim`, `chi_tra`, `fra`, `deu`, `spa`, `rus`, `jpn`, `kor`.
@@ -155,7 +155,7 @@ Gives a one-sentence scene description. Useful for photos, weak for detail.
 
 ```bash
 pip install transformers torch --break-system-packages
-python scripts/inspect_image.py photo.jpg --mode describe
+python skills/image-sight/scripts/inspect_image.py photo.jpg --mode describe
 ```
 
 Notes:
@@ -256,7 +256,7 @@ tesseract --version
 python -c "import PIL, pytesseract; print('ok')"
 
 # End-to-end
-python scripts/inspect_image.py sample.png --mode auto
+python skills/image-sight/scripts/inspect_image.py sample.png --mode auto
 ```
 
 If `inspect_image.py` reports a tool as unavailable, it will name it and suggest the fix. Do not pretend the step succeeded.

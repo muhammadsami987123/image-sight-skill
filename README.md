@@ -9,18 +9,22 @@ Image Sight is a skill that teaches text-only models (models with no native visi
 ## What's in this repo
 
 ```
-image-sight/
-├── SKILL.md                          # The skill definition (workflow + rules)
+image-sight-skill/
 ├── README.md                         # This file
 ├── LICENSE                           # Apache-2.0
 ├── .gitignore
 ├── SETUP.md                          # Complete installation & setup guide
-├── scripts/
-│   └── inspect_image.py              # Inspection pipeline (metadata, palette, OCR, captioning, layout hints)
-└── references/
-    ├── tool-setup.md                 # Installing Tesseract, EasyOCR, captioning models; troubleshooting
-    └── image-type-playbooks.md       # Per-type extraction strategies
+└── skills/                           # <-- click this folder to get all skills
+    └── image-sight/                  # self-contained skill folder
+        ├── SKILL.md                  # The skill definition (workflow + rules)
+        ├── scripts/
+        │   └── inspect_image.py      # Inspection pipeline (metadata, palette, OCR, captioning, layout hints)
+        └── references/
+            ├── tool-setup.md         # Installing Tesseract, EasyOCR, captioning models; troubleshooting
+            └── image-type-playbooks.md  # Per-type extraction strategies
 ```
+
+> **How to use:** Clone the repo, then open the `skills/` folder. Inside `skills/image-sight/` you will find everything the skill needs: `SKILL.md`, `scripts/`, and `references/`. Copy that whole folder into your skills directory (e.g. `~/.claude/skills/image-sight/`) and you are ready to go. All main things live inside this one folder.
 
 ## When to use this skill
 
@@ -38,7 +42,7 @@ pip install pillow pytesseract --break-system-packages
 # Windows:      winget install UB-Mannheim.TesseractOCR
 
 # 2. Run the inspection script on an image
-python scripts/inspect_image.py <image_path> --mode auto
+python skills/image-sight/scripts/inspect_image.py <image_path> --mode auto
 ```
 
 The script prints a structured JSON report. It never crashes on missing optional dependencies; it reports which tools were unavailable.
