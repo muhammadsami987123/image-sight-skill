@@ -6,6 +6,8 @@ Image Sight is a skill that teaches text-only models (models with no native visi
 
 > Every statement about image content must trace back to a tool output. If it does not, do not say it.
 
+![Image Sight workflow](./assets/workflow.svg)
+
 ## What's in this repo
 
 ```
@@ -69,9 +71,9 @@ Optional flags: `--lang eng+urd` (OCR languages, Tesseract codes), `--psm 6` (pa
 ## Workflow (summary)
 
 1. **Confirm the image is actually present** — check the upload directory with `ls`. If a URL was given, download it; otherwise ask the user to upload.
-2. **Run the inspection script** — `python scripts/inspect_image.py <image_path> --mode auto`.
-3. **Classify the image type** from the evidence and pick a playbook from `references/image-type-playbooks.md`.
-4. **Improve weak results** — retry with preprocessing, different `--psm`, or language packs (see `references/tool-setup.md`).
+2. **Run the inspection script** — `python skills/image-sight/scripts/inspect_image.py <image_path> --mode auto`.
+3. **Classify the image type** from the evidence and pick a playbook from `skills/image-sight/references/image-type-playbooks.md`.
+4. **Improve weak results** — retry with preprocessing, different `--psm`, or language packs (see `skills/image-sight/references/tool-setup.md`).
 5. **Interpret and answer** — lead with the answer, quote extracted text exactly, reconstruct structure, state limits briefly.
 6. **Verify numbers** — for invoices, receipts, charts, tables, cross-check arithmetic.
 
